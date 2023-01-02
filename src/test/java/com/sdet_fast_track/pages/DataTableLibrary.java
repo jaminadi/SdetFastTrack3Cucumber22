@@ -14,8 +14,6 @@ public class DataTableLibrary {
     @FindBy(id = "month")
     public WebElement monthDropdown;
 
-
-
     /**
      *https:https://library2.cydeo.com/login.html
      * C#27: Library Login
