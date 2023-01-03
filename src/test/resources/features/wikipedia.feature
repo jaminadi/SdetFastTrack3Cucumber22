@@ -1,7 +1,7 @@
 Feature: Wikipedia search feature
 
 
-  Scenario: Wikipedia title verifcation
+  Scenario: Wikipedia title verification
     Given user is in the wikipedia main page
     When user searches for Steve Job
     And user clicks search button
@@ -21,7 +21,7 @@ Feature: Wikipedia search feature
     Then user should see Steve Jobs in Image header text
 
 
-  Scenario: Wikipedia title verifcation
+  Scenario: Wikipedia title verification
     Given user is in the wikipedia main page
     When user searches for "Steve Jobs"
     And user clicks search button

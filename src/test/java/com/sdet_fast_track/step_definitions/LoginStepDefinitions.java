@@ -31,13 +31,13 @@ LoginPage loginPage =new LoginPage();
     public void librarian_clicks_login_button() {
        loginPage.loginButton.click();
     }
+
     @Then("librarian should see his username {string} displayed in the page")
     public void librarian_should_see_his_username_displayed_in_the_page(String expectedUserName) {
         WebDriverWait wait =new WebDriverWait(Driver.getDriver(),10);
         wait.until(ExpectedConditions.visibilityOf(loginPage.userNameText));
         String actualUsername=loginPage.userNameText.getText();
         assertEquals("Usernames Did not match",expectedUserName,actualUsername);
-
     }
 
     @When("student enters username {string} and password {string}")
@@ -45,11 +45,12 @@ LoginPage loginPage =new LoginPage();
        loginPage.emailInput.sendKeys(username);
        loginPage.passwordInput.sendKeys(password);
     }
+
     @When("students clicks login button")
     public void students_clicks_login_button() {
         loginPage.loginButton.click();
-
     }
+
     @Then("student should see his username {string} displayed in the page")
     public void student_should_see_his_username_displayed_in_the_page(String expectedUserName) {
         WebDriverWait wait =new WebDriverWait(Driver.getDriver(),10);
@@ -57,6 +58,4 @@ LoginPage loginPage =new LoginPage();
         String actualUsername=loginPage.userNameText.getText();
         assertEquals("Usernames Did not match",expectedUserName,actualUsername);
     }
-
-
 }
