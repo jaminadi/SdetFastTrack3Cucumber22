@@ -27,14 +27,11 @@ public class WikipediaStepDefinitions {
 
     @When("user clicks search button")
     public void user_clicks_search_button() {
-
         wikipediaPage.searchButton.click();
-
     }
 
     @Then("user should see Steve Jobs in title")
     public void user_should_see_steve_jobs_in_title() {
-
         String expectedTitle = "Steve Jobs";
         String actualTitle = Driver.getDriver().getTitle();
         assertTrue("Title did not contain Steve Jobs", actualTitle.contains(expectedTitle));
@@ -54,56 +51,47 @@ public class WikipediaStepDefinitions {
         assertEquals("Steve Jobs was not displayed in the image header text", expectedHeaderText, actualHeaderText);
     }
 
+
+
+
     @When("user searches for {string}")
     public void user_searches_for(String keyword) {
         wikipediaPage.searchInput.sendKeys(keyword);
     }
 
-
     @Then("user should see {string} in title")
     public void user_should_see_in_title(String expectedTitle) {
-
         String actualTitle = Driver.getDriver().getTitle();
         assertTrue("Title did not match", actualTitle.contains(expectedTitle));
-
     }
-
 
     @Then("user should see {string} on the header")
     public void user_should_see_on_the_header(String expectedHeader) {
-
         String actualHeaderText = wikipediaPage.headerText.getText();
         assertEquals("Header text did not match", expectedHeader, actualHeaderText);
-
     }
 
     @Then("user should see {string} in Image header text")
     public void user_should_see_in_image_header_text(String expectedImageText) {
         String actualImageText = wikipediaPage.imageText.getText();
         assertEquals("Image text did not match", expectedImageText, actualImageText);
-
     }
 
     @Then("user should see {string} on the Image")
     public void user_should_see_on_the_image(String expected) {
         String actual = wikipediaPage.imageText.getText();
         assertEquals(expected, actual);
-
     }
 
     @Then("user should see {string} on the title")
     public void user_should_see_on_the_title(String expected) {
-
         String actualTitle = Driver.getDriver().getTitle();
         assertTrue(actualTitle.contains(expected));
-
     }
 
     @Then("user should see  {string}  on the header")
     public void user_should_see_on_the_headers(String expected) {
-
         String actual=wikipediaPage.headerText.getText();
         assertEquals(expected,actual);
-
     }
 }
