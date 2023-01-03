@@ -46,16 +46,20 @@ public class DataTableStepDefinitions {
         assertEquals("Username did not match. ",expected,actual);
     }
 
+
+
+
+
     @Given("User is on the dropdowns page of practice tool")
     public void user_is_on_the_dropdowns_page_of_practice_tool() {
         Driver.getDriver().get("https://practice.cydeo.com/dropdown");
-
     }
 
     @Then("User should see below info in month dropdown")
     public void user_should_see_below_info_in_month_dropdown(List<String> expectedMonths) {
         Select select=new Select(dataTablePage.monthDropdown);
         List<WebElement> list=select.getOptions();
+        //we cannot compare a List of String with a List of webelements, so we need to convert it into List of String
         List<String> actualMonths=list.stream().map(WebElement::getText).collect(Collectors.toList());
         //for (WebElement each: list) {
          //   actualMonths.add(each.getText());
@@ -68,6 +72,10 @@ public class DataTableStepDefinitions {
         }
 
     }
+
+
+
+
 
     @Given("librarian is on the login page of the app")
     public void librarian_is_on_the_login_page_of_the_app() {
