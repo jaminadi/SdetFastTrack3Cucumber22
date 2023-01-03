@@ -77,6 +77,7 @@ public class WikipediaStepDefinitions {
         assertEquals("Image text did not match", expectedImageText, actualImageText);
     }
 
+
     @Then("user should see {string} on the Image")
     public void user_should_see_on_the_image(String expected) {
         String actual = wikipediaPage.imageText.getText();

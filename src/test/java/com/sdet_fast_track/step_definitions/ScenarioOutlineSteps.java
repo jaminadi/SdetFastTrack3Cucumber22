@@ -12,11 +12,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.junit.Assert.assertEquals;
 
 public class ScenarioOutlineSteps {
-LoginPage loginPage =new LoginPage();
+    LoginPage loginPage =new LoginPage();
+
     @Given("user is on the login page of the library app")
     public void user_is_on_the_login_page_of_the_library_app() {
         Driver.getDriver().get(ConfigurationReader.getProperty("libraryURL"));
-
     }
 
     @When("user enters {string} and {string}")
@@ -24,16 +24,15 @@ LoginPage loginPage =new LoginPage();
        loginPage.emailInput.sendKeys(email);
        loginPage.passwordInput.sendKeys(password);
     }
+
     @When("user clicks on the login button")
     public void user_clicks_on_the_login_button() {
         loginPage.loginButton.click();
 
     }
 
-
     @Then("user should see {string}")
     public void user_should_see(String expectedUsername) {
-
         WebDriverWait wait =new WebDriverWait(Driver.getDriver(),10);
         wait.until(ExpectedConditions.visibilityOf(loginPage.userNameText));
         assertEquals("User name did not match",expectedUsername,loginPage.userNameText.getText());
