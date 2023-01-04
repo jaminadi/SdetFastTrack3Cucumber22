@@ -23,7 +23,7 @@ Feature: DataTables Practice
       | September   |
       | October     |
       | November    |
-      | December123 |
+      | December |
 
 
   Scenario: User should be able to see all the page option numbers

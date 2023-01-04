@@ -39,7 +39,7 @@ Feature: Wikipedia search feature
     Given user is in the wikipedia main page
     When user searches for "Steve Jobs"
     And user clicks search button
-    Then user should see "Steve Jobs1332" in Image header text
+    Then user should see "Steve Jobs" in Image header text
 
 
 
