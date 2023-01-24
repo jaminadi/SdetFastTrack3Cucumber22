@@ -12,6 +12,15 @@ import org.openqa.selenium.TakesScreenshot;
 
 public class Hooks {
 
+    //this can change the browser type dynamically
+    /*@Before the purpose of this method to run tests with tag @firefox or @chrome to specify scenario to be run in specific browser
+    public void setup(Scenario scenario){
+        if(scenario.getSourceTagNames().contains("@firefox")){
+            Driver.setDriver("firefox");
+        }else if(scenario.getSourceTagNames().contains("@chrome")){
+         Driver.setDriver("chrome");
+    }*/
+
     @Before
     public void setUpScenario(){
         System.out.println("------Setting up browser with further details...");
@@ -21,7 +30,7 @@ public class Hooks {
     @After
     public void tearDownScenario(Scenario scenario){
         //if my scenario failed
-            // go and take screen shot
+            // go and take screenshot
         if (scenario.isFailed()) {
             byte[] screenShot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenShot, "image/png", scenario.getName());
@@ -29,4 +38,21 @@ public class Hooks {
         BrowserUtils.wait(1);
         Driver.closeDriver();
     }
+
+
+    /**
+     * Alternative screenshot method
+     *
+     * @After
+     * public void tearDown(Scenario scenario){
+     *     if (scenario.isFailed()) {
+     *         1. cast driver object to TakeScreenshot object
+     *         TakeScreenShot takesScreenshot = (TakesScreenshot) Driver.getDriver();
+     *         2. save screenshot as an array of bytes
+     *         byt[] screenshot = takesScreenshot.getScreenshotAs(OutputType.BYTES);
+     *         3. attach screenshot to the report
+     *         scenario.attach(screenshot, "image/png", scenario.getName());
+     *     }
+     * }
+     */
 }
