@@ -33,4 +33,24 @@ public class ConfigurationReader {
         return properties.getProperty(keyWord);
     }
 
+    //or
+
+    /**
+     *
+     * }
+     *
+     * private static final Properties properties = new Properties();
+     * static{
+     *         try(InputStream inputStream = new FileInputStream("configuration.properties")){
+     *                 properties.load(inputStream);
+     *         }catch(IOException e){
+     *                 e.printStackTrace();
+     *                 throw new RuntimeException("Properties file not found!");
+     *         }
+     * }
+     *
+     * public static String getProperty(String keyName) {
+     *      *         return configFile.getProperty(keyName);
+     */
+
 }
